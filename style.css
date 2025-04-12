@@ -1,0 +1,245 @@
+/* الخطوط */
+body {
+  font-family: 'Tajawal', sans-serif;
+  background-color: #f8f9fa;
+}
+
+/* الهيرو */
+.hero {
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://via.placeholder.com/1920x600');
+  background-size: cover;
+  color: white;
+  padding: 100px 0;
+  text-align: center;
+}
+
+/* بطاقات المنتجات */
+.product-card {
+  transition: transform 0.3s;
+  margin-bottom: 20px;
+}
+.product-card:hover {
+  transform: translateY(-10px);
+}
+.price {
+  color: #C9A22;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.features-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* توسيط أفقي */
+  align-items: center; /* توسيط عمودي */
+  min-height: 100vh; /* ارتفاع كامل للشاشة */
+  gap: 2rem;
+  padding: 2rem;
+}
+.feature-card {
+  flex: 0 1 250px; /* مرونة + عرض أساسي */
+  text-align: center; /* توسيط المحتوى النصي */
+  padding: 1.5rem;
+}
+
+.feature-icon {
+  font-size: 2rem;
+  color: #C9A227;
+}
+
+.feature-content {
+  flex: 1;
+}
+
+.feature-title {
+  margin: 0 0 0.5rem 0;
+  color: #2c3e50;
+}
+
+.feature-description {
+  margin: 0;
+  color: #7f8c8d;
+  line-height: 1.6;
+}
+.whatsapp-float {
+  transition: transform 0.3s;
+}
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+.testimonials .card {
+  transition: transform 0.3s;
+  border: none;
+  border-radius: 15px;
+}
+
+.testimonials .card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.testimonials img {
+  border: 3px solid #2c3e50; /* طيني متجرك */
+}
+/* في ملف style.css */
+.search-container {
+  max-width: 500px;
+}
+
+#searchResults {
+  z-index: 1000;
+  border-radius: 10px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+#searchResults a {
+  padding: 10px 15px;
+  color: #333;
+  border-bottom: 1px solid #eee;
+}
+
+#searchResults a:hover {
+  background-color: #f8f9fa;
+}
+/* في ملف style.css */
+.cart-item {
+  padding: 10px;
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+
+.cart-item:hover {
+  background-color: #f8f9fa;
+}
+
+#cartModal .modal-content {
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+#checkoutBtn {
+  transition: all 0.3s;
+}
+
+#checkoutBtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3);
+}
+footer {
+    background-color: #181818; /* خلفية داكنة */
+    color: #f0f0f0; /* لون النص الأبيض الفاتح */
+    padding: 40px 20px;
+    font-family: sans-serif;
+    line-height: 1.6;
+}
+
+.footer-top, .footer-middle {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #333;
+}
+
+.footer-top {
+    align-items: center;
+}
+
+.logo-section img {
+    max-width: 150px;
+    margin-bottom: 10px;
+}
+
+.social-links a {
+    color: #f0f0f0;
+    font-size: 1.5em;
+    margin-left: 15px;
+    text-decoration: none;
+}
+
+.social-links a:hover {
+    color: #bbb;
+}
+
+.links-column h3, .contact-info h3 {
+    color: #eee;
+    margin-bottom: 15px;
+}
+
+.links-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.links-column ul li {
+    margin-bottom: 8px;
+}
+
+.links-column ul li a {
+    color: #ccc;
+    text-decoration: none;
+}
+
+.links-column ul li a:hover {
+    color: #bbb;
+}
+
+.contact-info p {
+    margin-bottom: 10px;
+}
+
+.contact-info i {
+    margin-right: 8px;
+    color: #ccc;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 0.9em;
+    color: #aaa;
+}
+
+#back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2em;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+#back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+#back-to-top:hover {
+    background-color: #555;
+}
+
+/* تنسيقات للشاشات الأصغر */
+@media (max-width: 768px) {
+    .footer-top, .footer-middle {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .logo-section, .social-links, .links-column, .contact-info {
+        margin-bottom: 30px;
+        width: 100%;
+    }
+
+    .social-links a {
+        margin: 0 10px;
+    }
+}

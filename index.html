@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>متجر غادة | تيشيرت فاخر</title>
+  <!-- الروابط السابقة هنا -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<!-- Bootstrap للتصميم المتجاوب -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<div class="modal fade" id="cartModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header bg-success text-white">
+        <h5 class="modal-title">السلة</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <div id="cartItems" class="mb-3">
+          <!-- العناصر تضاف هنا بالجافاسكريبت -->
+          <div class="text-center py-5">
+            <i class="fas fa-shopping-cart fa-3x text-muted"></i>
+            <p class="mt-3">السلة فارغة</p>
+          </div>
+        </div>
+        <div class="cart-summary border-top pt-3">
+          <div class="d-flex justify-content-between">
+            <h5>المجموع:</h5>
+            <h5 id="cartTotal">0 ج.س</h5>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline-secondary" data-bs-dismiss="modal">مواصلة التسوق</button>
+        <button id="checkoutBtn" class="btn btn-success">إتمام الشراء</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Font Awesome للأيقونات -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<!-- Google Fonts للخطوط العربية -->
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+<body>
+  <!-- شريط التنقل -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <i class="fas fa-tshirt"></i> غادة
+      </a>
+    <div class="search-container position-relative mx-auto">
+  <input 
+    type="text" 
+    id="searchInput" 
+    class="form-control py-2 px-5" 
+    placeholder="ابحث ..." 
+    style="border-radius: 50px; border: 1px solid #C9A227;">
+  
+  <button 
+    class="btn position-absolute end-0 top-0 h-100" 
+    style="border-radius: 0 50px 50px 0; background: #C9A227; color: white;">
+    <i class="fas fa-search"></i>
+  </button>
+  
+  <!-- نتائج البحث المباشر -->
+  <div id="searchResults" class="position-absolute w-100 bg-white shadow mt-1 d-none"></div>
+</div>
+     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fas fa-home"></i> الرئيسية</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fas fa-shopping-bag"></i> المنتجات</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+<!-- قسم الهيرو -->
+  <section class="hero">
+    <div class="container">
+      <h1>اجمل تصاميم التيشيرتات</h1>
+      <p>تسوق الآن بخصم 20% على أول طلب</p>
+      <a href="#" class="btn btn-primary" style="background-color: #C9A227; color: white; border-color: #C9A227;">تصفح المنتجات</a>
+    </div>
+  </section>
+
+  <!-- المنتجات -->
+  <section class="products py-5">
+    <div class="container">
+      <div class="row">
+        <!-- منتج 1 -->
+        <div class="col-md-4">
+          <div class="card product-card">
+            <img src="https://via.placeholder.com/300" class="card-img-top" alt="انمي">
+            <div class="card-body">
+              <h5 class="card-title">تيشيرت غوجو و سوكونا</h5>
+              <p class="price">10,000 جنيه سوداني</p>
+                <button class="btn btn-outline-primary" style="background-color: #C9A227; color: white; border-color: #C9A227;">أضف للسلة</button>
+            </div>
+          </div>
+        </div>
+        <!-- منتج 2 -->
+        <div class="col-md-4">
+          <div class="card product-card">
+            <img src="https://via.placeholder.com/300" class="card-img-top" alt="تيشيرت فاخر">
+            <div class="card-body">
+              <h5 class="card-title">تيشيرت اسود</h5>
+            <p class="price">10,000 جنيه سوداني</p>
+              <button class="btn btn-outline-primary" style="background-color: #C9A227; color: white; border-color: #C9A227;">أضف للسلة</button>
+
+            </div>
+          </div>
+        </div>
+  <a href="#add-testimonial" class="btn btn-outline-success mt-3" style="background-color: white; color: #C9A227; border-color: #C9A227;">أكتب رأيك عن المتجر</a>
+    <section class="testimonials py-5" style="background-color: #f8f9fa;">
+  <div class="container">
+    <h2 class="text-center mb-5">آراء عملائنا</h2>
+    
+    <div class="row">
+      <!-- شهادة 1 -->
+      <div class="col-md-4 mb-4">
+        <div class="card p-3 shadow-sm">
+          <div class="d-flex align-items-center mb-3">
+            <img src="https://i.imgur.com/J6l19aX.jpg" class="rounded-circle me-3" width="60" alt="عميل">
+            <div>
+              <h5 class="mb-0">احمد امير</h5>
+              <div class="text-warning">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <p class="mb-0">التيشيرت جودتو عالية ما شاء الله التوصيل سريع، شكراً ي فريق غادة!</p>
+        </div>
+      </div>
+      
+      <!-- شهادة 2 -->
+      <div class="col-md-4 mb-4">
+        <div class="card p-3 shadow-sm">
+          <div class="d-flex align-items-center mb-3">
+            <img src="https://i.imgur.com/T2WwVyz.jpg" class="rounded-circle me-3" width="60" alt="عميل">
+            <div>
+              <h5 class="mb-0">منتصر عبدالسلام</h5>
+              <div class="text-warning">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+            </div>
+          </div>
+          <p class="mb-0">التصاميم أنيقة والأسعار مناسبة استمرو و موفقين بإذن الله♥
+        </div>
+      </div>
+    <select class="form-select mb-3" id="sortReviews">
+     <option value="newest">الأحدث أولاً</option>
+     <option value="highest">الأعلى تقييماً</option>
+   </select>
+   </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="features-container">
+  <article class="feature-card">
+    <i class="fas fa-truck feature-icon" aria-hidden="true"></i>
+    <div class="feature-content">
+      <h3 class="feature-title">شحن مجاني</h3>
+      <p class="feature-description">شحن مجاني للطلبات الأكثر من $100</p>
+    </div>
+  </article>
+
+  <article class="feature-card">
+    <i class="fas fa-dollar-sign feature-icon" aria-hidden="true"></i>
+    <div class="feature-content">
+      <h3 class="feature-title">خصومات مميزة</h3>
+      <p class="feature-description">خصومات مميزة لجميع عملائنا الأوفياء</p>
+    </div>
+  </article>
+
+  <article class="feature-card">
+    <i class="fas fa-money-bill-alt feature-icon" aria-hidden="true"></i>
+    <div class="feature-content">
+      <h3 class="feature-title">ضمان إسترجاع الأموال</h3>
+      <p class="feature-description">ضمان استرجاع أموالك في حالة لم يعجبك المنتج</p>
+    </div>
+  </article>
+
+  <article class="feature-card">
+    <i class="fas fa-headphones feature-icon" aria-hidden="true"></i>
+    <div class="feature-content">
+      <h3 class="feature-title">دعم العملاء</h3>
+      <p class="feature-description">خدمة العملاء مباشرة تحت تصرفك طيلة أيام الأسبوع</
+  </a>
+</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+    <div class="footer-top">
+        <div class="logo-section">
+            <img src="images/dropify-logo.png" alt="Ghadah">
+            <p>
+" حيث يلتقي الإبداع بالأناقة في عالم التيشيرتات الفاخرة."
+انطلق في رحلة استثنائية معنا، الوجهة الأمثل لاكتشاف تيشيرتات فريدة تجسد ذوقك الرفيع وتعبر عن شخصيتك المتميزة.
+نحن في Ghadah لا نقدم مجرد تيشيرتات، بل نقدم قطعًا فنية قابلة للارتداء، صُممت بعناية فائقة وشغف لا يضاهى. يتميز متجرنا بمجموعة حصرية من التصاميم الفاخرة والمبتكرة التي تلبي تطلعات الباحثين عن التميز والاختلاف.
+اكتشف تشكيلتنا المتنوعة التي تجمع بين:
+ * تصاميم فريدة: إبداعات فنية مستوحاة من أحدث صيحات الموضة والثقافات المتنوعة، لتضمن لك إطلالة لا مثيل لها.
+ </div>
+ * جودة لا تضاهى: خامات فاخرة ومختارة بعناية فائقة لتوفير أقصى درجات الراحة والمتانة.
+ </div>
+* لمسة حرفية: طباعة عالية الدقة وتشطيبات متقنة تبرز جمال التصميم وتضمن جودته على المدى الطويل.
+</div>
+<div>
+_Ghadah ليس مجرد متجر، بل هو تجربة تسوق فاخرة تمنحك:
+</div>
+ * واجهة مستخدم سهلة وجذابة: تصفح سلس وممتع لاكتشاف أحدث التصاميم والمجموعات.
+ </div>
+ <div>
+ * خيارات دفع آمنة ومتنوعة: لتجربة شراء مريحة وموثوقة.
+ </div>
+ * خدمة عملاء استثنائية: فريق متخصص يقدم لك الدعم والمساعدة في كل خطوة.
+</div>
+<div>
+_اجعل خزانة ملابسك تعكس أسلوبك الراقي وعبّر عن فرديتك بتيشيرتات Ghadah الفاخرة. ابدأ رحلتك نحو الأناقة المتميزة اليوم!
+لماذا تختار Ghadah؟
+</div>
+<div>
+ * تصاميم حصرية لا تجدها في أي مكان آخر.
+ </div>
+* التزام بأعلى معايير الجودة والفخامة.
+</div>
+<div>
+ * تجربة تسوق مصممة خصيصًا لعشاق الأناقة.</p>
+        </div>
+        </footer>
+        <!-- ضع هذا الكود قبل غلق </body> -->
+<a href="https://wa.me/message/KQGRMUU3RDVGM1" 
+   class="whatsapp-float" 
+   target="_blank"
+   style="position:fixed; bottom:20px; left:20px; z-index:100;">
+  <i class="fab fa-whatsapp" style="font-size:50px; color:#25D366;"></i>
+  <!-- السكربتات -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+        <div class="social-links">
+            <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-x-twitter"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+
+    <div class="footer-middle">
+        <div class="links-column">
+            <h3>الشروط والسياسات</h3>
+            <ul>
+                <li><a href="#">سياسة الخصوصية</a></li>
+                <li><a href="#">سياسة الإسترجاع</a></li>
+                <li><a href="#">سياسة الشحن</a></li>
+                <li><a href="#">شروط الخدمة</a></li>
+            </ul>
+        </div>
+
+        <div class="links-column">
+            <h3>روابط سريعة</h3>
+            <ul>
+                <li><a href="#">تصنيفاتنا</a></li>
+                <li><a href="#">اتصل بنا</a></li>
+                <li><a href="#">سياسة الإسترجاع</a></li>
+                <li><a href="#">سياسة الخصوصية</a></li>
+            </ul>
+        </div>
+
+        <div class="contact-info">
+            <h3>خدمة العملاء</h3>
+            <p><i class="fas fa-map-marker-alt"></i>الشمالية , كريمة</p>
+            <p><i class="fas fa-phone"></i> 0113323369</p>
+            <p><i class="fas fa-envelope"></i> abubakrkhalilfallh@gmail.com</p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; جميع الحقوق محفوظة.Ghadah</p>
+    </div>
+
+    <button id="back-to-top"><i class="fas fa-chevron-up"></i></button>
+</footer>
+
+</html>
